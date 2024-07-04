@@ -16,7 +16,7 @@ export default function AuthLayout({
             src={authBanner}
             alt='Auth banner overlay'
             priority
-            style={{ objectFit: 'contain', width: '100%' }}
+            style={{ objectFit: 'cover', width: '100%', height: '100vh' }}
           />
         </div>
         <div className='relative'>

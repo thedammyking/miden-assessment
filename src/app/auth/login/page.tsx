@@ -14,7 +14,7 @@ export default function Login() {
           <h1 className='font-sans font-medium text-[22px] leading-[120%]'>Login</h1>
         </header>
         <LoginForm />
-        <div className='flex justify-between items-center *:font-serif text-xs leading-[150%] text-[#274B6B]'>
+        <div className='flex justify-between items-center *:font-serif text-xs leading-[150%] max-w-[382px] mx-auto text-[#274B6B]'>
           <Link href='#'>Forgotten Password?</Link>
           <div>
             Don't have an account?{' '}

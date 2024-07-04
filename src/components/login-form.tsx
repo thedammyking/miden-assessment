@@ -4,7 +4,7 @@ import { Button } from './ui/button';
 
 const LoginForm = () => {
   return (
-    <div className='mb-8'>
+    <div className='mb-8 mx-auto max-w-[382px]'>
       <InputWithLabel label='Email' variant={'auth'} id='email' isRequired className='mb-6' />
       <InputWithLabel
         variant={'auth'}
