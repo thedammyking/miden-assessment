@@ -9,6 +9,9 @@ const config: Config = {
         ...defaultCnnfig.theme?.fontFamily,
         sans: ['var(--font-generanl-sans)'],
         serif: ['var(--euclid-circular-a)']
+      },
+      colors: {
+        linpayDeepBlue: '#040119'
       }
     }
   },

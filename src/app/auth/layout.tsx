@@ -1,11 +1,28 @@
+import authBanner from '@/assets/svgs/auth-banner.svg';
+import linpayLogo from '@/assets/svgs/linpay-logo.svg';
+import Image from 'next/image';
+
 export default function AuthLayout({
   children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <main>
-      <div>{children}</div>
+    <main className='w-full grid grid-cols-2'>
+      <section>{children}</section>
+      <aside className='rounded-bl-[100px] relative overflow-hidden w-full h-screen flex justify-center items-center'>
+        <div className='absolute top-0 left-0 right-0 bottom-0'>
+          <Image
+            src={authBanner}
+            alt='Auth banner overlay'
+            priority
+            style={{ objectFit: 'contain', width: '100%' }}
+          />
+        </div>
+        <div className='relative'>
+          <Image src={linpayLogo} alt='linpay' height={80} />
+        </div>
+      </aside>
     </main>
   );
 }

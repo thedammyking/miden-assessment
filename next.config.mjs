@@ -1,15 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-	experimental: {
-		optimizePackageImports: ['lodash', 'zustand', 'date-fns'],
-		turbo: {
-			rules: {
-				test: /\.svg$/i,
-				issuer: /\.[jt]sx?$/,
-				use: ['@svgr/webpack'],
-			},
-		},
-	},
+  experimental: {
+    optimizePackageImports: ['lodash', 'zustand', 'date-fns']
+  }
 };
 
 export default nextConfig;
