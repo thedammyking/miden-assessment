@@ -11,7 +11,7 @@ export const labelVariants = cva(
   {
     variants: {
       variant: {
-        auth: 'text-[#182D41] font-sans font-normal text-sm leading-normal mb-2'
+        auth: 'text-[#182D41] font-sans font-normal text-sm leading-normal'
       },
       defaultVariants: {
         variant: 'auth'

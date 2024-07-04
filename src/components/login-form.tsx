@@ -25,34 +25,35 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleSubmission }) => {
       {({ values, handleChange, handleBlur, isValid, dirty, isSubmitting, errors, touched }) => (
         <Form>
           <div className='mb-8 mx-auto max-w-[382px]'>
-            <InputWithLabel
-              label='Email'
-              name='email'
-              variant={'auth'}
-              id='email'
-              isRequired
-              className='mb-6'
-              value={values.email}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.email ? errors.email : undefined}
-            />
-            <InputWithLabel
-              variant={'auth'}
-              label='Password'
-              name='password'
-              id='password'
-              isRequired
-              type='password'
-              className='mb-8'
-              value={values.password}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              errorMessage={touched.password ? errors.password : undefined}
-            />
+            <div className='w-full flex flex-col gap-6'>
+              <InputWithLabel
+                label='Email'
+                name='email'
+                variant={'auth'}
+                id='email'
+                isRequired
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.email ? errors.email : undefined}
+              />
+              <InputWithLabel
+                variant={'auth'}
+                label='Password'
+                name='password'
+                id='password'
+                isRequired
+                type='password'
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.password ? errors.password : undefined}
+              />
+            </div>
             <Button
               variant={'linpayBlue'}
               size={'linpayBlue'}
+              className='mt-8'
               disabled={!(isValid && dirty) || isSubmitting}
             >
               Proceed
