@@ -8,21 +8,29 @@ interface InputWithLabelProps
     VariantProps<typeof labelVariants> {
   label: string;
   isRequired?: boolean;
+  errorMessage?: string;
 }
 
 const InputWithLabel: React.FC<InputWithLabelProps> = ({
   label,
   isRequired,
   variant,
+  errorMessage,
+  className,
   ...inputProps
 }) => {
   return (
-    <div>
+    <div className={className}>
       <Label variant={variant} htmlFor={inputProps.id}>
         {label}
         {isRequired && <span className='text-[#F6954C] ml-px'>*</span>}
       </Label>
       <Input {...inputProps} variant={variant} />
+      {errorMessage && (
+        <p className='mt-1 text-xs text-red-500 font-serif font-light leading-normal'>
+          {errorMessage}
+        </p>
+      )}
     </div>
   );
 };
