@@ -8,9 +8,9 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className='w-full grid grid-cols-2'>
-      <section>{children}</section>
-      <aside className='rounded-bl-[100px] relative overflow-hidden w-full h-screen flex justify-center items-center'>
+    <main className='w-full grid grid-cols-2 h-screen'>
+      <section className='w-full h-full'>{children}</section>
+      <aside className='rounded-bl-[100px] relative overflow-hidden w-full h-full flex justify-center items-center'>
         <div className='absolute top-0 left-0 right-0 bottom-0'>
           <Image
             src={authBanner}

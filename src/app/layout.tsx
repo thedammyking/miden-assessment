@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import cx from 'classnames';
+import clsx from 'clsx';
 
 import '../styles/globals.css';
 
@@ -23,7 +23,7 @@ const generalSans = localFont({
     }
   ],
   display: 'swap',
-  variable: '--font-generanl-sans'
+  variable: '--font-general-sans'
 });
 
 const euclidCircularA = localFont({
@@ -69,7 +69,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={cx(generalSans.variable, euclidCircularA.variable, 'font-sans')}
+        className={clsx(generalSans.variable, euclidCircularA.variable)}
         suppressHydrationWarning
       >
         {children}
