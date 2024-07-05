@@ -14,7 +14,7 @@ export default function SignUp() {
     console.log('values', values);
   };
   return (
-    <div className='flex items-center h-full w-full'>
+    <div className='h-full pt-32 pb-14 overflow-y-scroll'>
       <div className='px-[169px] w-full'>
         <header className='text-center mb-10'>
           <h1 className='font-sans font-medium text-[22px] leading-[120%]'>Sign Up</h1>

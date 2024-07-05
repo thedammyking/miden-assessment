@@ -14,7 +14,7 @@ export default function Login() {
     console.log('values', values);
   };
   return (
-    <div className='flex items-center h-screen w-full'>
+    <div className='flex items-center h-screen w-full overflow-y-scroll'>
       <div className='px-[169px] w-full'>
         <header className='text-center mb-10'>
           <h1 className='font-sans font-medium text-[22px] leading-[120%]'>Login</h1>
