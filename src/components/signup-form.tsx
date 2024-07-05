@@ -12,7 +12,7 @@ interface SignUpFormProps {
 }
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ handleSubmission }) => {
-  const [currentStep, setCurrentStep] = React.useState<SignUpSteps>(SignUpSteps.Password);
+  const [currentStep, setCurrentStep] = React.useState<SignUpSteps>(SignUpSteps.BusinessInfo);
 
   return (
     <div>

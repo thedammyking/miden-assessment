@@ -4,16 +4,20 @@ import React from 'react';
 import InputWithLabel from '../ui/input-with-label';
 import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
-import { LoginFormValues } from '@/types/auth';
+import { BusinessInfoFormValues } from '@/types/auth';
 import { loginValidationSchema } from '@/validationSchemas/auth';
+import SelectWithLabel from '../ui/select-with-label';
+import { ORGANIZATION_TYPES } from '@/contants';
 
 const BusinessInfoForm: React.FC = () => {
-  const initialFormValues: LoginFormValues = {
-    email: '',
-    password: ''
+  const initialFormValues: BusinessInfoFormValues = {
+    organizationName: '',
+    organizationType: '',
+    rcNumber: '',
+    phoneNumber: ''
   };
 
-  const handleSubmission = async (values: LoginFormValues) => {
+  const handleSubmission = async (values: BusinessInfoFormValues) => {
     console.log('values', values);
   };
   return (
@@ -26,28 +30,46 @@ const BusinessInfoForm: React.FC = () => {
         <Form>
           <div className='mb-8 mx-auto max-w-[382px]'>
             <div className='w-full flex flex-col gap-6'>
-              <InputWithLabel
-                label='Email'
-                name='email'
+              <SelectWithLabel
+                label='Choose Organisation Type'
+                name='organizationType'
                 variant={'auth'}
-                id='email'
                 isRequired
-                value={values.email}
-                onChange={handleChange}
-                onBlur={handleBlur}
-                errorMessage={touched.email ? errors.email : undefined}
+                value={values.organizationType}
+                onValueChange={value =>
+                  handleChange({
+                    target: {
+                      value,
+                      name: 'organizationType'
+                    }
+                  })
+                }
+                errorMessage={touched.organizationType ? errors.organizationType : undefined}
+                options={ORGANIZATION_TYPES}
               />
               <InputWithLabel
+                label='Organisation Name'
+                name='organizationName'
                 variant={'auth'}
-                label='Password'
-                name='password'
-                id='password'
+                id='organizationName'
                 isRequired
-                type='password'
-                value={values.password}
+                placeholder='E.g Shoprite Limited'
+                value={values.organizationName}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.password ? errors.password : undefined}
+                errorMessage={touched.organizationName ? errors.organizationName : undefined}
+              />
+              <InputWithLabel
+                label='Registration Number'
+                name='rcNumber'
+                variant={'auth'}
+                id='rcNumber'
+                isRequired
+                placeholder='E.g 1222324-45466'
+                value={values.rcNumber}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.rcNumber ? errors.rcNumber : undefined}
               />
             </div>
             <Button

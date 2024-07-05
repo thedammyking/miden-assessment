@@ -3,6 +3,13 @@ export interface LoginFormValues {
   password: string;
 }
 
+export interface BusinessInfoFormValues {
+  organizationType: string;
+  organizationName: string;
+  phoneNumber: string;
+  rcNumber: string;
+}
+
 export interface AdminInfoFormValues {
   firstname: string;
   lastname: string;
