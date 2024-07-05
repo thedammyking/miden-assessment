@@ -9,7 +9,7 @@ export default function AuthLayout({
 }>) {
   return (
     <main className='w-full grid grid-cols-2 h-screen'>
-      <section className='w-full h-full'>{children}</section>
+      <section className='w-full h-full overflow-y-scroll'>{children}</section>
       <aside className='rounded-bl-[100px] relative overflow-hidden w-full h-full flex justify-center items-center'>
         <div className='absolute top-0 left-0 right-0 bottom-0'>
           <Image

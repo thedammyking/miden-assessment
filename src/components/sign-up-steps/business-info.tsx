@@ -5,9 +5,10 @@ import InputWithLabel from '../ui/input-with-label';
 import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
 import { BusinessInfoFormValues } from '@/types/auth';
-import { loginValidationSchema } from '@/validationSchemas/auth';
+import { businessInfoValidationSchema } from '@/validation-schemas/auth';
 import SelectWithLabel from '../ui/select-with-label';
-import { ORGANIZATION_TYPES } from '@/contants';
+import { ORGANIZATION_TYPES } from '@/data/contants';
+import PhoneInputWithLabel from '../ui/phone-input-with-label';
 
 const BusinessInfoForm: React.FC = () => {
   const initialFormValues: BusinessInfoFormValues = {
@@ -24,17 +25,18 @@ const BusinessInfoForm: React.FC = () => {
     <Formik
       initialValues={initialFormValues}
       onSubmit={handleSubmission}
-      validationSchema={loginValidationSchema}
+      validationSchema={businessInfoValidationSchema}
     >
       {({ values, handleChange, handleBlur, isValid, dirty, isSubmitting, errors, touched }) => (
         <Form>
           <div className='mb-8 mx-auto max-w-[382px]'>
             <div className='w-full flex flex-col gap-6'>
               <SelectWithLabel
-                label='Choose Organisation Type'
+                label='Organisation Type'
                 name='organizationType'
                 variant={'auth'}
                 isRequired
+                placeholder='Choose Organisation Type'
                 value={values.organizationType}
                 onValueChange={value =>
                   handleChange({
@@ -70,6 +72,17 @@ const BusinessInfoForm: React.FC = () => {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 errorMessage={touched.rcNumber ? errors.rcNumber : undefined}
+              />
+              <PhoneInputWithLabel
+                label='Phone Number'
+                name='phoneNumber'
+                variant={'auth'}
+                id='phoneNumber'
+                placeholder='E.g +2348022222222'
+                value={values.phoneNumber}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.phoneNumber ? errors.phoneNumber : undefined}
               />
             </div>
             <Button

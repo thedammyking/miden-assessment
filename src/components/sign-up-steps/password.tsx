@@ -5,7 +5,7 @@ import InputWithLabel from '../ui/input-with-label';
 import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
 import { PasswordFormValues } from '@/types/auth';
-import { passwordValidationSchema } from '@/validationSchemas/auth';
+import { passwordValidationSchema } from '@/validation-schemas/auth';
 
 const PasswordForm: React.FC = () => {
   const initialFormValues: PasswordFormValues = {

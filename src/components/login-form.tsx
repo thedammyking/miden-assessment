@@ -5,7 +5,7 @@ import InputWithLabel from './ui/input-with-label';
 import { Button } from './ui/button';
 import { Form, Formik } from 'formik';
 import { LoginFormValues } from '@/types/auth';
-import { loginValidationSchema } from '@/validationSchemas/auth';
+import { loginValidationSchema } from '@/validation-schemas/auth';
 
 interface LoginFormProps {
   handleSubmission(values: LoginFormValues): Promise<void>;

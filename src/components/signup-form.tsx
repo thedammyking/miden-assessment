@@ -6,6 +6,7 @@ import If from './if';
 import BusinessInfoForm from './sign-up-steps/business-info';
 import PasswordForm from './sign-up-steps/password';
 import AdminInfoForm from './sign-up-steps/admin-info';
+import SignUpStepIndicator from './ui/sign-up-step-indicator';
 
 interface SignUpFormProps {
   handleSubmission(values: LoginFormValues): Promise<void>;
@@ -13,9 +14,11 @@ interface SignUpFormProps {
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ handleSubmission }) => {
   const [currentStep, setCurrentStep] = React.useState<SignUpSteps>(SignUpSteps.BusinessInfo);
+  const completedSteps: SignUpSteps[] = [];
 
   return (
-    <div>
+    <>
+      <SignUpStepIndicator currentStep={currentStep} completedSteps={completedSteps} />
       <If condition={currentStep === SignUpSteps.BusinessInfo}>
         <BusinessInfoForm />
       </If>
@@ -25,7 +28,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ handleSubmission }) => {
       <If condition={currentStep === SignUpSteps.Password}>
         <PasswordForm />
       </If>
-    </div>
+    </>
   );
 };
 

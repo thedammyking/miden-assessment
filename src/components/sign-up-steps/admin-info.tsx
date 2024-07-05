@@ -5,7 +5,7 @@ import InputWithLabel from '../ui/input-with-label';
 import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
 import { AdminInfoFormValues } from '@/types/auth';
-import { adminInfoValidationSchema } from '@/validationSchemas/auth';
+import { adminInfoValidationSchema } from '@/validation-schemas/auth';
 
 const AdminInfoForm: React.FC = () => {
   const initialFormValues: AdminInfoFormValues = {

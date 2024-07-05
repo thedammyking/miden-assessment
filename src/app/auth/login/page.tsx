@@ -1,4 +1,5 @@
 import LoginForm from '@/components/login-form';
+import { SIGN_UP_ROUTE_SLUG } from '@/data/page-routes';
 import { LoginFormValues } from '@/types/auth';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -23,7 +24,7 @@ export default function Login() {
           <Link href='#'>Forgotten Password?</Link>
           <div>
             Don't have an account?{' '}
-            <Link className='font-medium text-[#01C295] ml-1' href='/auth/sign-up'>
+            <Link className='font-medium text-[#01C295] ml-1' href={SIGN_UP_ROUTE_SLUG}>
               Sign Up
             </Link>
           </div>

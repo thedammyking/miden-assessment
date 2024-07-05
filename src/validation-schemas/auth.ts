@@ -6,10 +6,10 @@ export const loginValidationSchema = object({
 });
 
 export const businessInfoValidationSchema = object({
-  organizationType: string().required('Enter first name'),
-  organizationName: string().required('Enter last name'),
-  rcNumber: string().required('Enter last name'),
-  phoneNumber: string().required('Enter last name')
+  organizationType: string().required('Select organization type'),
+  organizationName: string().required('Enter organization name'),
+  rcNumber: string().required('Enter registration number'),
+  phoneNumber: string()
 });
 
 export const adminInfoValidationSchema = object({
