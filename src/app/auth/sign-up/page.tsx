@@ -1,13 +1,33 @@
+import SignUpForm from '@/components/signup-form';
+import { LoginFormValues } from '@/types/auth';
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Sign Up'
 };
 
 export default function SignUp() {
+  const handleFormSubmission = async (values: LoginFormValues) => {
+    'use server';
+    console.log('values', values);
+  };
   return (
-    <section className='flex min-h-screen flex-col items-center justify-between p-24'>
-      Sign up
-    </section>
+    <div className='flex items-center h-screen w-full'>
+      <div className='px-[169px] w-full'>
+        <header className='text-center mb-10'>
+          <h1 className='font-sans font-medium text-[22px] leading-[120%]'>Sign Up</h1>
+        </header>
+        <SignUpForm handleSubmission={handleFormSubmission} />
+        <div className='flex justify-center items-center text-xs leading-[150%] max-w-[382px] mx-auto text-[#274B6B]'>
+          <p className='font-serif'>
+            Already have an account?{' '}
+            <Link className='font-medium text-[#01C295] ml-1' href='/auth/sign-up'>
+              Login
+            </Link>
+          </p>
+        </div>
+      </div>
+    </div>
   );
 }

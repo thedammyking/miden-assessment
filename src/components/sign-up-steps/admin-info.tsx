@@ -1,0 +1,81 @@
+'use client';
+
+import React from 'react';
+import InputWithLabel from '../ui/input-with-label';
+import { Button } from '../ui/button';
+import { Form, Formik } from 'formik';
+import { AdminInfoFormValues } from '@/types/auth';
+import { adminInfoValidationSchema } from '@/validationSchemas/auth';
+
+const AdminInfoForm: React.FC = () => {
+  const initialFormValues: AdminInfoFormValues = {
+    firstname: '',
+    lastname: '',
+    email: ''
+  };
+
+  const handleSubmission = async (values: AdminInfoFormValues) => {
+    const username = `${values.firstname} ${values.lastname}`;
+    console.log('values', values);
+    console.log('username', username);
+  };
+  return (
+    <Formik
+      initialValues={initialFormValues}
+      onSubmit={handleSubmission}
+      validationSchema={adminInfoValidationSchema}
+    >
+      {({ values, handleChange, handleBlur, isValid, dirty, isSubmitting, errors, touched }) => (
+        <Form>
+          <div className='mb-8 mx-auto max-w-[382px]'>
+            <div className='w-full flex flex-col gap-6'>
+              <InputWithLabel
+                label='First Name'
+                name='firstname'
+                variant={'auth'}
+                id='firstname'
+                isRequired
+                value={values.firstname}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.firstname ? errors.firstname : undefined}
+              />
+              <InputWithLabel
+                label='Last Name'
+                name='lastname'
+                variant={'auth'}
+                id='lastname'
+                isRequired
+                value={values.lastname}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.lastname ? errors.lastname : undefined}
+              />
+              <InputWithLabel
+                label='Email'
+                name='email'
+                variant={'auth'}
+                id='email'
+                isRequired
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                errorMessage={touched.email ? errors.email : undefined}
+              />
+            </div>
+            <Button
+              variant={'linpayBlue'}
+              size={'linpayBlue'}
+              className='mt-8'
+              disabled={!(isValid && dirty) || isSubmitting}
+            >
+              Proceed
+            </Button>
+          </div>
+        </Form>
+      )}
+    </Formik>
+  );
+};
+
+export default AdminInfoForm;
