@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Metadata } from 'next';
 
-import SignUpClient from './client-sign-up';
+import SignUpClient from './sign-up-client';
 
 export const metadata: Metadata = {
   title: 'Sign Up'
