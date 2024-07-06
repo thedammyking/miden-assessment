@@ -1,7 +1,12 @@
+'use client';
+
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-
 import { cn } from '@/lib/utils';
+import CountryPicker from './country-picker';
+import { PARSED_NIGERIA_DATA } from '@/data/contants';
+import { ParsedCountry } from 'react-international-phone';
+import { AsYouType, CountryCode, getExampleNumber } from 'libphonenumber-js/min';
 
 export const phoneInputVariants = cva(
   'flex h-10 w-full rounded-sm border border-neutral-200 bg-white px-3 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-50',
@@ -17,19 +22,51 @@ export const phoneInputVariants = cva(
   }
 );
 
+const addPrefixToDialCode = (code: string, prefix = '+') => `${prefix}${code}`;
+
 export interface PhoneInputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     VariantProps<typeof phoneInputVariants> {}
 
 const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
-  ({ className, type, variant, ...props }, ref) => {
+  ({ className, type, variant, value, onChange, placeholder, ...props }, ref) => {
+    const [selectedCountry, setSelectedCountry] =
+      React.useState<ParsedCountry>(PARSED_NIGERIA_DATA);
+
+    const handleAsYouType = (inputValue: string, country: string) => {
+      const asYouType = new AsYouType(country as CountryCode);
+      asYouType.input(inputValue);
+      return String(asYouType.getNumber()?.number || '');
+    };
+
+    const handleCountrySelect = (country: ParsedCountry) => {
+      onChange?.({
+        target: {
+          value: addPrefixToDialCode(country.dialCode),
+          name: props.name
+        }
+      } as any);
+      setSelectedCountry(country);
+    };
+
+    const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const formatted = handleAsYouType(e.target.value, selectedCountry.iso2.toUpperCase());
+      e.target.value = formatted || '';
+      return onChange?.(e);
+    };
+
     return (
-      <input
-        type={type}
-        className={cn(phoneInputVariants({ variant }), className)}
-        ref={ref}
-        {...props}
-      />
+      <div className='relative w-full h-max'>
+        <CountryPicker handleSelection={handleCountrySelect} selectedCountry={selectedCountry} />
+        <input
+          type={type}
+          className={cn(phoneInputVariants({ variant }), className, 'pl-[68px]')}
+          ref={ref}
+          value={value || addPrefixToDialCode(selectedCountry.dialCode)}
+          onChange={handleOnChange}
+          {...props}
+        />
+      </div>
     );
   }
 );
