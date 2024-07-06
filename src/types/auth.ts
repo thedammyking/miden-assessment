@@ -6,7 +6,7 @@ export interface LoginFormValues {
 export interface BusinessInfoFormValues {
   organizationType: string;
   organizationName: string;
-  phoneNumber: string;
+  phoneNumber?: string;
   rcNumber: string;
 }
 

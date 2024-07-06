@@ -1,3 +1,4 @@
+import { validatePhoneNumber } from '@/lib/utils';
 import { object, ref, string } from 'yup';
 
 export const loginValidationSchema = object({
@@ -9,7 +10,7 @@ export const businessInfoValidationSchema = object({
   organizationType: string().required('Select organization type'),
   organizationName: string().required('Enter organization name'),
   rcNumber: string().required('Enter registration number'),
-  phoneNumber: string()
+  phoneNumber: validatePhoneNumber('Enter a valid phone number')
 });
 
 export const adminInfoValidationSchema = object({
