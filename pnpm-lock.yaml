@@ -53,6 +53,9 @@ importers:
       react-international-phone:
         specifier: ^4.3.0
         version: 4.3.0(react@18.3.1)
+      react-password-checklist:
+        specifier: ^1.6.0
+        version: 1.6.0(react@18.3.1)
       tailwind-merge:
         specifier: ^2.3.0
         version: 2.3.0
@@ -1912,6 +1915,11 @@ packages:
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+
+  react-password-checklist@1.6.0:
+    resolution: {integrity: sha512-jw/U4+3SFGeBGcQyokEtFFqLQpuCFnDUFLGHdvtopyV5lCgRo4YlZORRCusY7SP8W+05+1oYE6caEE4V5O59Ng==}
+    peerDependencies:
+      react: '>16.0.0-alpha || >17.0.0-alpha || >18.0.0-alpha'
 
   react-remove-scroll-bar@2.3.6:
     resolution: {integrity: sha512-DtSYaao4mBmX+HDo5YWYdBWQwYIQQshUV/dVxFxK+KM26Wjwp1gZ6rv6OC3oujI6Bfu6Xyg3TwK533AQutsn/g==}
@@ -4294,6 +4302,10 @@ snapshots:
       react: 18.3.1
 
   react-is@16.13.1: {}
+
+  react-password-checklist@1.6.0(react@18.3.1):
+    dependencies:
+      react: 18.3.1
 
   react-remove-scroll-bar@2.3.6(@types/react@18.3.3)(react@18.3.1):
     dependencies:

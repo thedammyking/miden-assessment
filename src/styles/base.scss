@@ -1,0 +1,22 @@
+.password-checklist {
+  .valid,
+  .invalid {
+    margin: 0 !important;
+
+    & > span {
+      padding: 0 !important;
+    }
+  }
+
+  &-container,
+  &-arrow {
+    box-shadow: 0 7px 23px 0 #00000010;
+  }
+
+  &-arrow {
+    transform: rotate(45deg);
+    border-top: 0;
+    border-right: 0;
+    left: -6px;
+  }
+}

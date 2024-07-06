@@ -1,0 +1,42 @@
+import * as React from 'react';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from '@/lib/utils';
+import { omit } from 'lodash';
+import PasswordChecklist from './password-checklist';
+
+export const passwordInputVariants = cva(
+  'relative flex h-10 w-full rounded-sm border border-neutral-200 bg-white px-3 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-50',
+  {
+    variants: {
+      variant: {
+        auth: 'border-[#E1EBF5] h-12 rounded text-[#182D41] focus:outline-none focus:border-[#01C295] placeholder:text-[#182D4180] font-sans font-normal text-sm leading-normal'
+      },
+      defaultVariants: {
+        variant: 'auth'
+      }
+    }
+  }
+);
+
+export interface PasswordInputProps
+  extends React.InputHTMLAttributes<HTMLInputElement>,
+    VariantProps<typeof passwordInputVariants> {}
+
+const PasswordInput = React.forwardRef<HTMLInputElement, PasswordInputProps>(
+  ({ className, variant, ...props }, ref) => {
+    return (
+      <div className='w-full h-min relative'>
+        <PasswordChecklist password={props.value as string} />
+        <input
+          type='password'
+          className={cn(passwordInputVariants({ variant }), className)}
+          ref={ref}
+          {...omit(props, ['type'])}
+        />
+      </div>
+    );
+  }
+);
+PasswordInput.displayName = 'PasswordInput';
+
+export { PasswordInput };

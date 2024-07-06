@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import clsx from 'clsx';
 
 import '../styles/globals.css';
+import '../styles/base.scss';
 
 const generalSans = localFont({
   src: [

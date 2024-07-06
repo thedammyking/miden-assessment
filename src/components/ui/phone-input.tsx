@@ -6,14 +6,14 @@ import { cn } from '@/lib/utils';
 import CountryPicker from './country-picker';
 import { PARSED_NIGERIA_DATA } from '@/data/contants';
 import { ParsedCountry } from 'react-international-phone';
-import { AsYouType, CountryCode, getExampleNumber } from 'libphonenumber-js/min';
+import { AsYouType, CountryCode } from 'libphonenumber-js/min';
 
 export const phoneInputVariants = cva(
   'flex h-10 w-full rounded-sm border border-neutral-200 bg-white px-3 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        auth: 'border-[#E1EBF5] h-12 rounded text-[#182D41] focus:outline-none focus:border-[#182D41] placeholder:text-[#182D4180] font-sans font-normal text-sm leading-normal'
+        auth: 'border-[#E1EBF5] h-12 rounded text-[#182D41] focus:outline-none focus:border-[#01C295] placeholder:text-[#182D4180] font-sans font-normal text-sm leading-normal'
       },
       defaultVariants: {
         variant: 'auth'
@@ -59,7 +59,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
       <div className='relative w-full h-max'>
         <CountryPicker handleSelection={handleCountrySelect} selectedCountry={selectedCountry} />
         <input
-          type={type}
+          type={type || 'tel'}
           className={cn(phoneInputVariants({ variant }), className, 'pl-[68px]')}
           ref={ref}
           value={value || addPrefixToDialCode(selectedCountry.dialCode)}

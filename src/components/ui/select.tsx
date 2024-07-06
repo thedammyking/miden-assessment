@@ -18,7 +18,7 @@ export const selectTriggerVariants = cva(
   {
     variants: {
       variant: {
-        auth: 'border-[#E1EBF5] h-12 rounded text-[#182D41] focus:border-[#182D41] placeholder:text-[#182D4180] font-sans font-normal text-sm leading-normal'
+        auth: 'border-[#E1EBF5] h-12 rounded text-[#182D41] focus:border-[#01C295] placeholder:text-[#182D4180] font-sans font-normal text-sm leading-normal'
       },
       defaultVariants: {
         variant: 'auth'
