@@ -10,6 +10,7 @@ import PasswordInputWithLabel from '../ui/password-input-with-label';
 import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
 import { useSignUpFormSubmission } from '@/providers/sign-up-form-submission-provider';
 import { mapToObject } from '@/lib/utils';
+import Spinner from '../ui/spinner';
 
 const PasswordForm: React.FC = () => {
   const initialFormValues: PasswordFormValues = {
@@ -50,19 +51,17 @@ const PasswordForm: React.FC = () => {
                 name='password'
                 id='password'
                 isRequired
-                type='password'
+                useCheckList
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                errorMessage={touched.password ? errors.password : undefined}
               />
-              <InputWithLabel
+              <PasswordInputWithLabel
                 variant={'auth'}
                 label='Confirm Password'
                 name='confirmPassword'
                 id='confirmPassword'
                 isRequired
-                type='password'
                 value={values.confirmPassword}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -76,7 +75,11 @@ const PasswordForm: React.FC = () => {
               type='submit'
               disabled={!(isValid && dirty) || isSubmitting}
             >
-              Proceed
+              {isSubmitting ? (
+                <Spinner className='stroke-current' width={20} height={20} />
+              ) : (
+                'Proceed'
+              )}
             </Button>
           </div>
         </Form>

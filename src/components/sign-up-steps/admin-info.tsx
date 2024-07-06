@@ -7,6 +7,7 @@ import { Form, Formik } from 'formik';
 import { AdminInfoFormValues, SignUpSteps } from '@/types/auth';
 import { adminInfoValidationSchema } from '@/validation-schemas/auth';
 import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
+import Spinner from '../ui/spinner';
 
 const AdminInfoForm: React.FC = () => {
   const initialFormValues: AdminInfoFormValues = {
@@ -74,7 +75,11 @@ const AdminInfoForm: React.FC = () => {
               type='submit'
               disabled={!(isValid && dirty) || isSubmitting}
             >
-              Proceed
+              {isSubmitting ? (
+                <Spinner className='stroke-current' width={20} height={20} />
+              ) : (
+                'Proceed'
+              )}
             </Button>
           </div>
         </Form>

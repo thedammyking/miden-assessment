@@ -6,6 +6,7 @@ import { Button } from './ui/button';
 import { Form, Formik } from 'formik';
 import { LoginFormValues } from '@/types/auth';
 import { loginValidationSchema } from '@/validation-schemas/auth';
+import Spinner from './ui/spinner';
 
 interface LoginFormProps {
   handleSubmission(values: LoginFormValues): Promise<void>;
@@ -57,7 +58,11 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleSubmission }) => {
               type='submit'
               disabled={!(isValid && dirty) || isSubmitting}
             >
-              Proceed
+              {isSubmitting ? (
+                <Spinner className='stroke-current' width={20} height={20} />
+              ) : (
+                'Proceed'
+              )}
             </Button>
           </div>
         </Form>

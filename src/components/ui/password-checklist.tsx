@@ -23,7 +23,7 @@ const PasswordChecklist: React.FC<PasswordChecklist> = ({ password }) => {
         </PopoverTrigger>
       </PopoverAnchor>
       <PopoverContent side='left' sideOffset={16} align='start' alignOffset={24} asChild>
-        <div className='password-checklist-container p-[21px] w-[194px] bg-[#E6F9F4] rounded border border-[#E1EBF5]'>
+        <div className='password-checklist-container p-[21px] w-[194px] bg-[#e6f9f4] rounded border border-[#E1EBF5]'>
           <div className='password-checklist-arrow absolute w-[12px] h-[12px] bg-[#e6f9f4] top-4 border border-[#E1EBF5]' />
           <p className='flex gap-2 items-center justify-start text-[#182D41] font-serif font-medium'>
             <InfoIcon className='stroke-current' size={20} /> Password must

@@ -10,6 +10,7 @@ import SelectWithLabel from '../ui/select-with-label';
 import { ORGANIZATION_TYPES } from '@/data/contants';
 import PhoneInputWithLabel from '../ui/phone-input-with-label';
 import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
+import Spinner from '../ui/spinner';
 
 const BusinessInfoForm: React.FC = () => {
   const initialFormValues: BusinessInfoFormValues = {
@@ -97,7 +98,11 @@ const BusinessInfoForm: React.FC = () => {
               type='submit'
               disabled={!(isValid && dirty) || isSubmitting}
             >
-              Proceed
+              {isSubmitting ? (
+                <Spinner className='stroke-current' width={20} height={20} />
+              ) : (
+                'Proceed'
+              )}
             </Button>
           </div>
         </Form>

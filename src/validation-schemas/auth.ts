@@ -20,7 +20,15 @@ export const adminInfoValidationSchema = object({
 });
 
 export const passwordValidationSchema = object({
-  password: string().required('Enter password'),
+  password: string()
+    .required('Enter password')
+    .matches(/^[\s\S]{8,}$/, 'Must contain at least 8 characters')
+    .matches(/[A-Z]/, 'Must contain at least one uppercase')
+    .matches(/[a-z]/, 'Must contain at least one lowercase')
+    .matches(
+      /[ !"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~]/,
+      'Must contain at least one special case character'
+    ),
   confirmPassword: string()
     .required('Re-enter your password')
     .oneOf([ref('password')], 'Passwords must match')

@@ -25,3 +25,16 @@ export const validatePhoneNumber = (
 
 export const mapToObject = <K, D>(map: Map<K, D>): { [x: string]: D } =>
   Object.fromEntries(map.entries());
+
+export const obfuscateEmailPartialy = (email: string, unObfuscateCount = 4) => {
+  try {
+    string().email('Use valid email').validate(email);
+    const getAtIndex = email.indexOf('@');
+    const toObfuscate = email.substring(unObfuscateCount + 1, getAtIndex);
+    const toObfuscateCount = toObfuscate.length;
+    const obfuscated = '*'.repeat(toObfuscateCount);
+    return `${email}`.replace(toObfuscate, obfuscated);
+  } catch (error) {
+    throw new Error(error as any);
+  }
+};
