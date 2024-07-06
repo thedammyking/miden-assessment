@@ -1,19 +1,22 @@
 'use client';
 
-import { InfoIcon } from 'lucide-react';
 import React from 'react';
 import ReactPasswordChecklist from 'react-password-checklist';
+import { PopoverAnchor } from '@radix-ui/react-popover';
+import { InfoIcon } from 'lucide-react';
+
+import Image from 'next/image';
+
 import uncheckedCheckbox from '@/assets/images/checkbox.png';
 import checkedCheckbox from '@/assets/images/checked-checkbox.png';
-import Image from 'next/image';
-import { Popover, PopoverContent, PopoverTrigger } from './popover';
-import { PopoverAnchor } from '@radix-ui/react-popover';
 
-interface PasswordChecklist {
+import { Popover, PopoverContent, PopoverTrigger } from './popover';
+
+interface PasswordChecklistProps {
   password: string;
 }
 
-const PasswordChecklist: React.FC<PasswordChecklist> = ({ password }) => {
+const PasswordChecklist: React.FC<PasswordChecklistProps> = ({ password }) => {
   const [isValid, setIsValid] = React.useState(false);
   return (
     <Popover open={!!password && !isValid} onOpenChange={() => {}}>

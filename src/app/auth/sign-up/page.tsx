@@ -1,6 +1,7 @@
+import React from 'react';
+
 import { Metadata } from 'next';
 
-import React from 'react';
 import SignUpClient from './client-sign-up';
 
 export const metadata: Metadata = {

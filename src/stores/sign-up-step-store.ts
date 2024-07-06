@@ -1,10 +1,11 @@
+import { createStore } from 'zustand/vanilla';
+
 import {
   AdminInfoRequestData,
   BusinessInfoFormValues,
   PasswordFormValues,
   SignUpSteps
 } from '@/types/auth';
-import { createStore } from 'zustand/vanilla';
 
 export interface SignUpStepState {
   data: Map<SignUpSteps, BusinessInfoFormValues | AdminInfoRequestData | PasswordFormValues>;

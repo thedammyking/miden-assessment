@@ -1,8 +1,9 @@
 import Image from 'next/image';
+
 import smsNotification from '@/assets/svgs/sms-notification.svg';
+import { obfuscateEmailPartialy } from '@/lib/utils';
 import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
 import { AdminInfoRequestData, SignUpSteps } from '@/types/auth';
-import { obfuscateEmailPartialy } from '@/lib/utils';
 
 export default function SignUpSuccess() {
   const { data } = useSignUpStepStore(state => state);

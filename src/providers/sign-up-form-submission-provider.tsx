@@ -1,7 +1,8 @@
 'use client';
 
-import { HandleSignUp } from '@/types/auth';
 import React, { createContext, useContext } from 'react';
+
+import { HandleSignUp } from '@/types/auth';
 
 interface SignUpFormSubmissionProviderProps {
   handleSubmission: HandleSignUp;

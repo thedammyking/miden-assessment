@@ -1,6 +1,7 @@
 import React from 'react';
-import { Label } from './label';
 import clsx from 'clsx';
+
+import { Label } from './label';
 import { PasswordInput, PasswordInputProps } from './password-input';
 
 interface PasswordInputWithLabelProps extends PasswordInputProps {

@@ -1,8 +1,9 @@
 import React from 'react';
-import { Label, labelVariants } from './label';
-import { Input } from './input';
 import { VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
+
+import { Input } from './input';
+import { Label, labelVariants } from './label';
 
 interface InputWithLabelProps
   extends React.InputHTMLAttributes<HTMLInputElement>,

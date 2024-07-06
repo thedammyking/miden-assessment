@@ -1,12 +1,14 @@
 'use client';
 
 import React from 'react';
-import InputWithLabel from '../ui/input-with-label';
-import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
+
+import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
 import { AdminInfoFormValues, SignUpSteps } from '@/types/auth';
 import { adminInfoValidationSchema } from '@/validation-schemas/auth';
-import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
+
+import { Button } from '../ui/button';
+import InputWithLabel from '../ui/input-with-label';
 import Spinner from '../ui/spinner';
 
 const AdminInfoForm: React.FC = () => {

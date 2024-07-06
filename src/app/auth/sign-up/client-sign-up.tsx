@@ -1,5 +1,9 @@
 'use client';
 
+import React from 'react';
+
+import Link from 'next/link';
+
 import If from '@/components/if';
 import SignUpSuccess from '@/components/sign-up-success';
 import SignUpForm from '@/components/signup-form';
@@ -7,9 +11,6 @@ import { LOGIN_ROUTE_SLUG } from '@/data/page-routes';
 import { SignUpFormSubmissionProvider } from '@/providers/sign-up-form-submission-provider';
 import { SignUpStepStoreProvider } from '@/providers/sign-up-step-provider';
 import { HandleSignUp } from '@/types/auth';
-import { Metadata } from 'next';
-import Link from 'next/link';
-import React from 'react';
 
 export default function SignUpClient() {
   const [isSignUpSuccessful, setIsSignUpSuccessful] = React.useState(false);

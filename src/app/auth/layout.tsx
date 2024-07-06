@@ -1,6 +1,8 @@
+import * as React from 'react';
+import Image from 'next/image';
+
 import authBanner from '@/assets/svgs/auth-banner.svg';
 import linpayLogo from '@/assets/svgs/linpay-logo.svg';
-import Image from 'next/image';
 
 export default function AuthLayout({
   children

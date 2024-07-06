@@ -1,10 +1,11 @@
-import { SIGN_UP_STEPS } from '@/data/contants';
-import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
-import { SignUpSteps } from '@/types/auth';
+import React from 'react';
 import clsx from 'clsx';
 import { uniqueId } from 'lodash';
 import { CheckIcon } from 'lucide-react';
-import React from 'react';
+
+import { SIGN_UP_STEPS } from '@/data/contants';
+import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
+import { SignUpSteps } from '@/types/auth';
 
 const SignUpStepIndicator: React.FC = () => {
   const { currentStep, data } = useSignUpStepStore(state => state);

@@ -1,7 +1,8 @@
 import React from 'react';
-import { Label, labelVariants } from './label';
 import { VariantProps } from 'class-variance-authority';
 import clsx from 'clsx';
+
+import { Label, labelVariants } from './label';
 import { PhoneInput } from './phone-input';
 
 interface PhoneInputWithLabelProps

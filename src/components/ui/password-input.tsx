@@ -2,10 +2,12 @@
 
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
 import { omit } from 'lodash';
-import PasswordChecklist from './password-checklist';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
+
+import PasswordChecklist from './password-checklist';
 
 export const passwordInputVariants = cva(
   'relative flex h-10 w-full rounded-sm border border-neutral-200 bg-white px-3 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-50',

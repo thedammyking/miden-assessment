@@ -1,15 +1,16 @@
 'use client';
 
 import React from 'react';
-import InputWithLabel from '../ui/input-with-label';
-import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
+
+import { mapToObject } from '@/lib/utils';
+import { useSignUpFormSubmission } from '@/providers/sign-up-form-submission-provider';
+import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
 import { PasswordFormValues, SignUpRequestData, SignUpSteps } from '@/types/auth';
 import { passwordValidationSchema } from '@/validation-schemas/auth';
+
+import { Button } from '../ui/button';
 import PasswordInputWithLabel from '../ui/password-input-with-label';
-import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
-import { useSignUpFormSubmission } from '@/providers/sign-up-form-submission-provider';
-import { mapToObject } from '@/lib/utils';
 import Spinner from '../ui/spinner';
 
 const PasswordForm: React.FC = () => {

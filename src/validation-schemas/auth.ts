@@ -1,5 +1,6 @@
-import { validatePhoneNumber } from '@/lib/utils';
 import { object, ref, string } from 'yup';
+
+import { validatePhoneNumber } from '@/lib/utils';
 
 export const loginValidationSchema = object({
   email: string().email('Enter a valid email').required('Enter an email'),

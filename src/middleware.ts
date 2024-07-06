@@ -1,6 +1,8 @@
+import { NextRequest, NextResponse } from 'next/server';
+
 import { AUTHENTICATED_ROUTES } from '@/data/contants';
 import { AUTH_ROUTE, LOGIN_ROUTE } from '@/data/page-routes';
-import { NextRequest, NextResponse } from 'next/server';
+
 import { matchesWildcard } from './lib/utils';
 
 export async function middleware(request: NextRequest) {

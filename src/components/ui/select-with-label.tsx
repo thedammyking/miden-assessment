@@ -1,7 +1,11 @@
 import React from 'react';
-import { Label } from './label';
 import * as SelectPrimitive from '@radix-ui/react-select';
 import { VariantProps } from 'class-variance-authority';
+import { isEmpty, uniqueId } from 'lodash';
+
+import { Options } from '@/types/generics';
+
+import { Label } from './label';
 import {
   Select,
   SelectContent,
@@ -10,8 +14,6 @@ import {
   selectTriggerVariants,
   SelectValue
 } from './select';
-import { Options } from '@/types/generics';
-import { isEmpty, uniqueId } from 'lodash';
 
 interface SelectWithLabelProps
   extends SelectPrimitive.SelectProps,

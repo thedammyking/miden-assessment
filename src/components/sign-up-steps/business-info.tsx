@@ -1,15 +1,17 @@
 'use client';
 
 import React from 'react';
-import InputWithLabel from '../ui/input-with-label';
-import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
+
+import { ORGANIZATION_TYPES } from '@/data/contants';
+import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
 import { BusinessInfoFormValues, SignUpSteps } from '@/types/auth';
 import { businessInfoValidationSchema } from '@/validation-schemas/auth';
-import SelectWithLabel from '../ui/select-with-label';
-import { ORGANIZATION_TYPES } from '@/data/contants';
+
+import { Button } from '../ui/button';
+import InputWithLabel from '../ui/input-with-label';
 import PhoneInputWithLabel from '../ui/phone-input-with-label';
-import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
+import SelectWithLabel from '../ui/select-with-label';
 import Spinner from '../ui/spinner';
 
 const BusinessInfoForm: React.FC = () => {

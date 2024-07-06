@@ -1,12 +1,14 @@
 'use client';
 
 import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '@/lib/utils';
-import CountryPicker from './country-picker';
-import { PARSED_NIGERIA_DATA } from '@/data/contants';
 import { ParsedCountry } from 'react-international-phone';
+import { cva, type VariantProps } from 'class-variance-authority';
 import { AsYouType, CountryCode } from 'libphonenumber-js/min';
+
+import { PARSED_NIGERIA_DATA } from '@/data/contants';
+import { cn } from '@/lib/utils';
+
+import CountryPicker from './country-picker';
 
 export const phoneInputVariants = cva(
   'flex h-10 w-full rounded-sm border border-neutral-200 bg-white px-3 py-2 text-sm disabled:cursor-not-allowed disabled:opacity-50',
@@ -29,7 +31,7 @@ export interface PhoneInputProps
     VariantProps<typeof phoneInputVariants> {}
 
 const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
-  ({ className, type, variant, value, onChange, placeholder, ...props }, ref) => {
+  ({ className, type, variant, value, onChange, ...props }, ref) => {
     const [selectedCountry, setSelectedCountry] =
       React.useState<ParsedCountry>(PARSED_NIGERIA_DATA);
 

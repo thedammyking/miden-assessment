@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
-import { Popover, PopoverContent, PopoverTrigger } from './popover';
-import { CountrySelectorDropdown, type ParsedCountry, FlagImage } from 'react-international-phone';
+import { CountrySelectorDropdown, FlagImage, type ParsedCountry } from 'react-international-phone';
 import { ChevronDown } from 'lucide-react';
+
+import { Popover, PopoverContent, PopoverTrigger } from './popover';
 
 import 'react-international-phone/style.css';
 

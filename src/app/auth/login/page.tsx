@@ -1,8 +1,9 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
+
 import LoginForm from '@/components/login-form';
 import { SIGN_UP_ROUTE_SLUG } from '@/data/page-routes';
 import { LoginFormValues } from '@/types/auth';
-import { Metadata } from 'next';
-import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Login'
@@ -23,7 +24,7 @@ export default function Login() {
         <div className='flex justify-between items-center *:font-serif text-xs leading-[150%] max-w-[382px] mx-auto text-[#274B6B]'>
           <Link href='#'>Forgotten Password?</Link>
           <div>
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link className='font-medium text-[#01C295] ml-1' href={SIGN_UP_ROUTE_SLUG}>
               Sign Up
             </Link>

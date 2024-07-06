@@ -1,9 +1,9 @@
 'use client';
 
-import React, { createContext, useRef, useContext } from 'react';
+import React, { createContext, useContext, useRef } from 'react';
 import { useStore } from 'zustand';
 
-import { type SignUpStepStore, createSignUpStepStore } from '@/stores/sign-up-step-store';
+import { createSignUpStepStore, type SignUpStepStore } from '@/stores/sign-up-step-store';
 
 export type SignUpStepStoreApi = ReturnType<typeof createSignUpStepStore>;
 

@@ -1,6 +1,8 @@
+import React from 'react';
+import clsx from 'clsx';
+
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import clsx from 'clsx';
 
 import '../styles/globals.css';
 import '../styles/base.scss';

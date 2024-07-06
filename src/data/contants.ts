@@ -1,5 +1,6 @@
-import { SignUpSteps } from '@/types/auth';
 import { defaultCountries } from 'react-international-phone';
+
+import { SignUpSteps } from '@/types/auth';
 
 export const ORGANIZATION_TYPES = [
   {
