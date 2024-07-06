@@ -54,6 +54,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleSubmission }) => {
               variant={'linpayBlue'}
               size={'linpayBlue'}
               className='mt-8'
+              type='submit'
               disabled={!(isValid && dirty) || isSubmitting}
             >
               Proceed

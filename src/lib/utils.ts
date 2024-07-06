@@ -22,3 +22,6 @@ export const validatePhoneNumber = (
     return isValidPhoneNumber(value, countryCode);
   });
 };
+
+export const mapToObject = <K, D>(map: Map<K, D>): { [x: string]: D } =>
+  Object.fromEntries(map.entries());

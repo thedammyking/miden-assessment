@@ -4,8 +4,9 @@ import React from 'react';
 import InputWithLabel from '../ui/input-with-label';
 import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
-import { AdminInfoFormValues } from '@/types/auth';
+import { AdminInfoFormValues, SignUpSteps } from '@/types/auth';
 import { adminInfoValidationSchema } from '@/validation-schemas/auth';
+import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
 
 const AdminInfoForm: React.FC = () => {
   const initialFormValues: AdminInfoFormValues = {
@@ -14,11 +15,14 @@ const AdminInfoForm: React.FC = () => {
     email: ''
   };
 
+  const { setStep, addData } = useSignUpStepStore(state => state);
+
   const handleSubmission = async (values: AdminInfoFormValues) => {
     const username = `${values.firstname} ${values.lastname}`;
-    console.log('values', values);
-    console.log('username', username);
+    addData(SignUpSteps.AdminInfo, { username, email: values.email });
+    setStep(SignUpSteps.Password);
   };
+
   return (
     <Formik
       initialValues={initialFormValues}
@@ -67,6 +71,7 @@ const AdminInfoForm: React.FC = () => {
               variant={'linpayBlue'}
               size={'linpayBlue'}
               className='mt-8'
+              type='submit'
               disabled={!(isValid && dirty) || isSubmitting}
             >
               Proceed

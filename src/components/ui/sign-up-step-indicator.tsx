@@ -1,19 +1,13 @@
 import { SIGN_UP_STEPS } from '@/data/contants';
+import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
 import { SignUpSteps } from '@/types/auth';
 import clsx from 'clsx';
 import { uniqueId } from 'lodash';
 import { CheckIcon } from 'lucide-react';
 import React from 'react';
 
-interface SignUpStepIndicatorProps {
-  currentStep: SignUpSteps;
-  completedSteps: SignUpSteps[];
-}
-
-const SignUpStepIndicator: React.FC<SignUpStepIndicatorProps> = ({
-  currentStep,
-  completedSteps
-}) => {
+const SignUpStepIndicator: React.FC = () => {
+  const { currentStep, data } = useSignUpStepStore(state => state);
   const stepKeys = Object.keys(SIGN_UP_STEPS) as SignUpSteps[];
 
   return (
@@ -21,7 +15,7 @@ const SignUpStepIndicator: React.FC<SignUpStepIndicatorProps> = ({
       {stepKeys.map((step, index) => {
         const isActive = currentStep === step;
         const stepCount = index + 1;
-        const isCompleted = completedSteps.includes(step);
+        const isCompleted = data.has(step);
         return (
           <div
             className={clsx(

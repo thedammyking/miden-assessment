@@ -4,9 +4,12 @@ import React from 'react';
 import InputWithLabel from '../ui/input-with-label';
 import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
-import { PasswordFormValues } from '@/types/auth';
+import { PasswordFormValues, SignUpRequestData, SignUpSteps } from '@/types/auth';
 import { passwordValidationSchema } from '@/validation-schemas/auth';
 import PasswordInputWithLabel from '../ui/password-input-with-label';
+import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
+import { useSignUpFormSubmission } from '@/providers/sign-up-form-submission-provider';
+import { mapToObject } from '@/lib/utils';
 
 const PasswordForm: React.FC = () => {
   const initialFormValues: PasswordFormValues = {
@@ -14,14 +17,27 @@ const PasswordForm: React.FC = () => {
     password: ''
   };
 
-  const handleSubmission = async (values: PasswordFormValues) => {
-    console.log('values', values);
+  const { addData, data } = useSignUpStepStore(state => state);
+
+  const { handleSubmission } = useSignUpFormSubmission();
+
+  const handleSubmit = async (values: PasswordFormValues) => {
+    await addData(SignUpSteps.Password, values);
+    const dataFromMap = mapToObject(data);
+    const payload = Object.keys(dataFromMap).reduce((acc, curr) => {
+      acc = {
+        ...acc,
+        ...dataFromMap[curr]
+      };
+      return acc;
+    }, {} as SignUpRequestData);
+    await handleSubmission(payload);
   };
 
   return (
     <Formik
       initialValues={initialFormValues}
-      onSubmit={handleSubmission}
+      onSubmit={handleSubmit}
       validationSchema={passwordValidationSchema}
     >
       {({ values, handleChange, handleBlur, isValid, dirty, isSubmitting, errors, touched }) => (
@@ -57,6 +73,7 @@ const PasswordForm: React.FC = () => {
               variant={'linpayBlue'}
               size={'linpayBlue'}
               className='mt-8'
+              type='submit'
               disabled={!(isValid && dirty) || isSubmitting}
             >
               Proceed

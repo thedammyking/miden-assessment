@@ -4,11 +4,12 @@ import React from 'react';
 import InputWithLabel from '../ui/input-with-label';
 import { Button } from '../ui/button';
 import { Form, Formik } from 'formik';
-import { BusinessInfoFormValues } from '@/types/auth';
+import { BusinessInfoFormValues, SignUpSteps } from '@/types/auth';
 import { businessInfoValidationSchema } from '@/validation-schemas/auth';
 import SelectWithLabel from '../ui/select-with-label';
 import { ORGANIZATION_TYPES } from '@/data/contants';
 import PhoneInputWithLabel from '../ui/phone-input-with-label';
+import { useSignUpStepStore } from '@/providers/sign-up-step-provider';
 
 const BusinessInfoForm: React.FC = () => {
   const initialFormValues: BusinessInfoFormValues = {
@@ -18,9 +19,13 @@ const BusinessInfoForm: React.FC = () => {
     phoneNumber: ''
   };
 
+  const { setStep, addData } = useSignUpStepStore(state => state);
+
   const handleSubmission = async (values: BusinessInfoFormValues) => {
-    console.log('values', values);
+    addData(SignUpSteps.BusinessInfo, values);
+    setStep(SignUpSteps.AdminInfo);
   };
+
   return (
     <Formik
       initialValues={initialFormValues}
@@ -89,6 +94,7 @@ const BusinessInfoForm: React.FC = () => {
               variant={'linpayBlue'}
               size={'linpayBlue'}
               className='mt-8'
+              type='submit'
               disabled={!(isValid && dirty) || isSubmitting}
             >
               Proceed

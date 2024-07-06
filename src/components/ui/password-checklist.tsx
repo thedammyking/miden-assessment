@@ -48,7 +48,6 @@ const PasswordChecklist: React.FC<PasswordChecklist> = ({ password }) => {
             validTextColor='#01C295'
             invalidTextColor='#557591'
             onChange={isValid => {
-              console.log('isValid', isValid);
               setIsValid(isValid);
             }}
           />
