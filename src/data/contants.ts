@@ -23,3 +23,5 @@ export const PARSED_NIGERIA_DATA = {
   priority: NIGERIA_DATA?.[4],
   areaCodes: NIGERIA_DATA?.[5]
 };
+
+export const AUTHENTICATED_ROUTES = ['/*'];

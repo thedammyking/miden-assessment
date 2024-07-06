@@ -38,3 +38,11 @@ export const obfuscateEmailPartialy = (email: string, unObfuscateCount = 4) => {
     throw new Error(error as any);
   }
 };
+
+export const matchesWildcard = (path: string, pattern: string): boolean => {
+  if (pattern.endsWith('/*')) {
+    const basePattern = pattern.slice(0, -2);
+    return path.startsWith(basePattern);
+  }
+  return path === pattern;
+};
