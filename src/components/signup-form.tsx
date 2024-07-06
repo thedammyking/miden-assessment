@@ -15,7 +15,7 @@ const SignUpForm: React.FC = () => {
   const { currentStep } = useSignUpStepStore(state => state);
 
   return (
-    <>
+    <div className='mb-8 mx-auto w-[382px] max-w-[80%]'>
       <SignUpStepIndicator />
       <If condition={currentStep === SignUpSteps.BusinessInfo}>
         <BusinessInfoForm />
@@ -26,7 +26,7 @@ const SignUpForm: React.FC = () => {
       <If condition={currentStep === SignUpSteps.Password}>
         <PasswordForm />
       </If>
-    </>
+    </div>
   );
 };
 

@@ -24,7 +24,7 @@ export default function SignUpClient() {
       <SignUpStepStoreProvider>
         <If condition={!isSignUpSuccessful}>
           <div className='h-full pt-32 pb-14 overflow-y-scroll'>
-            <div className='px-[169px] w-full'>
+            <div className='mx-auto w-full'>
               <header className='text-center mb-10'>
                 <h1 className='font-sans font-medium text-[22px] leading-[120%]'>Sign Up</h1>
               </header>

@@ -27,7 +27,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ handleSubmission }) => {
     >
       {({ values, handleChange, handleBlur, isValid, dirty, isSubmitting, errors, touched }) => (
         <Form>
-          <div className='mb-8 mx-auto max-w-[382px]'>
+          <div className='mb-8 mx-auto w-[382px] max-w-[80%]'>
             <div className='w-full flex flex-col gap-6'>
               <InputWithLabel
                 label='Email'

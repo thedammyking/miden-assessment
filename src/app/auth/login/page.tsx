@@ -16,12 +16,12 @@ export default function Login() {
   };
   return (
     <div className='flex items-center h-screen w-full overflow-y-scroll'>
-      <div className='px-[169px] w-full'>
+      <div className='mx-auto w-full'>
         <header className='text-center mb-10'>
           <h1 className='font-sans font-medium text-[22px] leading-[120%]'>Login</h1>
         </header>
         <LoginForm handleSubmission={handleFormSubmission} />
-        <div className='flex justify-between items-center *:font-serif text-xs leading-[150%] max-w-[382px] mx-auto text-[#274B6B]'>
+        <div className='flex justify-between items-center *:font-serif text-xs leading-[150%] w-[382px] max-w-[80%] mx-auto text-[#274B6B]'>
           <Link href='#'>Forgotten Password?</Link>
           <div>
             Don&apos;t have an account?{' '}

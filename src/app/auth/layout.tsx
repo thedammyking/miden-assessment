@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import Image from 'next/image';
 
 import authBanner from '@/assets/svgs/auth-banner.svg';
@@ -21,8 +22,8 @@ export default function AuthLayout({
             style={{ objectFit: 'cover', width: '100%', height: '100vh' }}
           />
         </div>
-        <div className='relative'>
-          <Image src={linpayLogo} alt='linpay' height={80} />
+        <div className='relative w-[250px] max-w-[34%]'>
+          <Image src={linpayLogo} alt='linpay' />
         </div>
       </aside>
     </main>
