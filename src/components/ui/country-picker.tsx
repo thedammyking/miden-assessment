@@ -37,6 +37,7 @@ const CountryPicker: React.FC<CountryPickerProps> = ({ handleSelection, selected
           selectedCountry={selectedCountry.iso2}
           onSelect={handleCountrySelect}
           style={{ position: 'relative', top: 0, left: 0 }}
+          listItemClassName='text-[#182D41] font-sans font-normal text-sm leading-normal'
         />
       </PopoverContent>
     </Popover>
